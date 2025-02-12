@@ -80,44 +80,21 @@ st.title("🌊 Effluent Prediction Dashboard")
 
 # Sidebar Inputs
 st.sidebar.header("User Inputs")
-industry = st.sidebar.selectbox("Select Industry", df.index.unique())
+industry = st.sidebar.selectbox("Select Industry", df['Industry'].unique())
 year = st.sidebar.slider("Select Year", 2025, 2030, 2027)
 
-# Fetch prediction for selected year
-predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
-effluent_volume = np.random.uniform(30000, 60000)
-tds = np.random.uniform(500, 2000)
-conductivity = np.random.uniform(800, 2000)
-regulatory_limit = 100
-
-# Generate Report
-def generate_report(industry, year, concentration, reg_limit, effluent_volume, tds, conductivity):
-    output = []
-    if concentration > reg_limit:
-        output.append(f"The chemical concentration for {industry} in {year} is {concentration:.2f} ppm, exceeding the limit of {reg_limit} ppm. Action required!")
-    else:
-        output.append(f"The chemical concentration for {industry} in {year} is {concentration:.2f} ppm, within safe limits.")
-    if effluent_volume > 50000:
-        output.append(f"Effluent volume is high ({effluent_volume:.2f} liters), indicating increased industrial output.")
-    if tds > 1000:
-        output.append(f"TDS level ({tds:.2f} ppm) suggests potential water quality issues.")
-    if conductivity > 1500:
-        output.append(f"Conductivity ({conductivity:.2f} µS) indicates high ion concentration.")
-    return "\n".join(output)
-
-st.subheader("📢 Prediction Summary")
-st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
+# Fetch prediction for selected industry and year
+filtered_trends = future_trends.copy()
+filtered_trends = filtered_trends[filtered_trends['Date'].dt.year == year]
 
 # ----------------------------------------------------------------------------
 # Data Visualization
 st.subheader("📊 Effluent Concentration Trends")
-df_chart = future_trends.copy()
-df_chart['Year'] = df_chart['Date'].dt.year
 chart = (
-    alt.Chart(df_chart)
+    alt.Chart(filtered_trends)
     .mark_line()
     .encode(
-        x=alt.X("Year:N", title="Year"),
+        x=alt.X("Date:T", title="Date"),
         y=alt.Y("Predicted_Concentration:Q", title="Predicted Chemical Concentration (ppm)"),
     )
     .properties(height=320)
