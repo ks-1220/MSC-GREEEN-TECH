@@ -80,7 +80,7 @@ st.title("🌊 Effluent Prediction Dashboard")
 
 # Sidebar Inputs
 st.sidebar.header("User Inputs")
-industry = st.sidebar.selectbox("Select Industry", df['Industry'].unique())
+industry = st.sidebar.selectbox("Select Industry", df['Industry'].astype(str).unique())
 year = st.sidebar.slider("Select Year", 2025, 2030, 2027)
 
 # Fetch prediction for selected industry and year
