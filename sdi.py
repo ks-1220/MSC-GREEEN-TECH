@@ -31,8 +31,11 @@ def load_data():
 
 df = load_data()
 
-# Encode categorical columns
-categorical_cols = ['Industry', 'Chemical_Type', 'Weather_Condition', 'Production_Scale']
+# Store original industry names before encoding
+original_industries = df['Industry'].unique()
+
+# Encode categorical columns except Industry
+categorical_cols = ['Chemical_Type', 'Weather_Condition', 'Production_Scale']
 label_encoders = {}
 for col in categorical_cols:
     le = LabelEncoder()
@@ -80,7 +83,7 @@ st.title("🌊 Effluent Prediction Dashboard")
 
 # Sidebar Inputs
 st.sidebar.header("User Inputs")
-industry = st.sidebar.selectbox("Select Industry", df['Industry'].astype(str).unique())
+industry = st.sidebar.selectbox("Select Industry", original_industries)
 year = st.sidebar.slider("Select Year", 2025, 2030, 2027)
 
 # Fetch prediction for selected industry and year
