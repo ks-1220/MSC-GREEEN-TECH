@@ -122,6 +122,17 @@ def generate_report(industry, year, concentration, reg_limit, effluent_volume, t
     return "\n".join(output)
 
 st.title("Effluent Prediction Dashboard")
+st.markdown(Our project focuses on AI-ML-driven predictive analysis to monitor and control Yamuna River pollution. Using LSTM (Long Short-Term Memory), we aim to forecast pollution levels based on real-time sensor data.
+
+ AI-ML Implementation (Core Focus)
+🔹 We process historical pollution data (pH, TDS, effluent volume, etc.) and extract key features.
+🔹 We train an LSTM model to predict future chemical concentrations, helping assess pollution control strategies.
+🔹 Our Streamlit-based dashboard visualizes trends and provides real-time insights for effective enforcement.
+
+By leveraging AI, we ensure proactive pollution monitoring and enable data-driven decision-making.
+
+📌 A short and crisp presentation explaining our project is attached below. 🚀)
+
 #industry = st.text_input("Enter Industry Name")
 # Add dropdown for industry selection
 industry_options = [
@@ -140,3 +151,10 @@ regulatory_limit = 100  # Example threshold
 tds = np.random.uniform(500, 2000)  # Simulated value for demonstration
 conductivity = np.random.uniform(800, 2000)  # Simulated value for demonstration
 st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
+
+# Google Drive link to your presentation
+drive_link = "https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing"
+
+# Create a clickable button
+st.markdown(f'<a href="{drive_link}" target="_blank"><button style="background-color:#4CAF50; color:white; padding:10px 15px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">📥 Download Presentation</button></a>', unsafe_allow_html=True)
+
