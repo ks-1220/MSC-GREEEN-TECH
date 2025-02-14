@@ -6,7 +6,7 @@ This project is part of **GreenTech**, focusing on **AI-ML solutions** for envir
 Unlike hardware-based solutions, our emphasis is on **AI-driven insights and deployment** for real-world applications.
 
 ## 🔗 Links
-- 📑 [Project Presentation]("https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing")
+- 📑 [Project Presentation](https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing)
 - 🚀 [Deployed Model](https://green-tech-404-found.streamlit.app/)
 
 ## 📌 Overview
