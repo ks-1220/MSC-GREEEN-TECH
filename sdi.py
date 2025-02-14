@@ -160,7 +160,12 @@ effluent_volume = np.random.uniform(30000, 60000)  # Simulated value for demonst
 regulatory_limit = 100  # Example threshold
 tds = np.random.uniform(500, 2000)  # Simulated value for demonstration
 conductivity = np.random.uniform(800, 2000)  # Simulated value for demonstration
-st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
+#st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
+if industry and year and isinstance(predicted_value, (int, float)):
+    st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
+else:
+    st.warning("⚠️ Please select a valid Industry and Year to generate a report.")
+
 
 # Google Drive link to your presentation
 drive_link = "https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing"
