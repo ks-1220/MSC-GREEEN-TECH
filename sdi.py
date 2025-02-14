@@ -123,6 +123,16 @@ def generate_report(industry, year, concentration, reg_limit, effluent_volume, t
 
 st.title("Effluent Prediction Dashboard")
 industry = st.text_input("Enter Industry Name")
+# Add dropdown for industry selection
+industry_options = [
+    "Steel Plant D",
+    "Pharmaceutical Plant E",
+    "Paper Mill B",
+    "Textile Factory C",
+    "Chemical Plant A"
+]
+industry = st.selectbox("Select Industry", industry_options)
+
 year = st.selectbox("Select Year", [2025, 2026, 2027, 2028, 2029, 2030])
 predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
 effluent_volume = np.random.uniform(30000, 60000)  # Simulated value for demonstration
