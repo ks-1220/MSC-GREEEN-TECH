@@ -140,16 +140,10 @@ st.markdown(
 
 #industry = st.text_input("Enter Industry Name")
 # Add dropdown for industry selection
-industry_options = [
-    "Steel Plant D",
-    "Pharmaceutical Plant E",
-    "Paper Mill B",
-    "Textile Factory C",
-    "Chemical Plant A"
-]
-industry = st.selectbox("Select Industry", industry_options)
-
-year = st.selectbox("Select Year", [2025, 2026, 2027, 2028, 2029, 2030])
+# Streamlit UI
+industry_options = ["Steel Plant D", "Pharmaceutical Plant E", "Paper Mill B", "Textile Factory C", "Chemical Plant A"]
+industry = st.selectbox("Select Industry", industry_options, index=None, placeholder="Select industry from below")
+year = st.selectbox("Select Year", [2025, 2026, 2027, 2028, 2029, 2030], index=None, placeholder="Select year from 2025-2030 from below")
 predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
 effluent_volume = np.random.uniform(30000, 60000)  # Simulated value for demonstration
 regulatory_limit = 100  # Example threshold
