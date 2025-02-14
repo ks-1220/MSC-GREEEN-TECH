@@ -145,11 +145,14 @@ industry_options = ["Steel Plant D", "Pharmaceutical Plant E", "Paper Mill B", "
 industry = st.selectbox("Select Industry", industry_options, index=None, placeholder="Select industry from below")
 year = st.selectbox("Select Year", [2025, 2026, 2027, 2028, 2029, 2030], index=None, placeholder="Select year from 2025-2030 from below")
 
-predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration']
-if not predicted_value.empty:
-    predicted_value = predicted_value.values[0]
+if year in future_trends['Date'].dt.year.values:
+    predicted_value_series = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration']
+    if not predicted_value_series.empty:
+        predicted_value = float(predicted_value_series.values[0])  # Ensure it's a number
+    else:
+        predicted_value = None  # No valid prediction available
 else:
-    predicted_value = "Data not available for selected year"
+    predicted_value = None
 
 
 #predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
