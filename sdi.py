@@ -145,8 +145,9 @@ industry_options = ["Steel Plant D", "Pharmaceutical Plant E", "Paper Mill B", "
 industry = st.selectbox("Select Industry", industry_options, index=None, placeholder="Select industry from below")
 year = st.selectbox("Select Year", [2025, 2026, 2027, 2028, 2029, 2030], index=None, placeholder="Select year from 2025-2030 from below")
 
-if year in future_trends['Date'].dt.year.values:
-    predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
+predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration']
+if not predicted_value.empty:
+    predicted_value = predicted_value.values[0]
 else:
     predicted_value = "Data not available for selected year"
 
@@ -159,8 +160,8 @@ conductivity = np.random.uniform(800, 2000)  # Simulated value for demonstration
 st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
 
 # Google Drive link to your presentation
-#drive_link = "https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing"
+drive_link = "https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing"
 
 # Create a clickable button
-#st.markdown(f'<a href="{drive_link}" target="_blank"><button style="background-color:#4CAF50; color:white; padding:10px 15px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">📥 Download Presentation</button></a>', unsafe_allow_html=True)
+st.markdown(f'<a href="{drive_link}" target="_blank"><button style="background-color:#4CAF50; color:white; padding:10px 15px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">📥 Download Presentation</button></a>', unsafe_allow_html=True)
 
