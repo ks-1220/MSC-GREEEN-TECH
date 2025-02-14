@@ -122,16 +122,21 @@ def generate_report(industry, year, concentration, reg_limit, effluent_volume, t
     return "\n".join(output)
 
 st.title("Effluent Prediction Dashboard")
-st.markdown(Our project focuses on AI-ML-driven predictive analysis to monitor and control Yamuna River pollution. Using LSTM (Long Short-Term Memory), we aim to forecast pollution levels based on real-time sensor data.
+st.markdown(
+    """
+    **Our project focuses on AI-ML-driven predictive analysis to monitor and control Yamuna River pollution.**
+    Using **LSTM (Long Short-Term Memory)**, we aim to **forecast pollution levels** based on real-time sensor data.
 
- AI-ML Implementation (Core Focus)
-🔹 We process historical pollution data (pH, TDS, effluent volume, etc.) and extract key features.
-🔹 We train an LSTM model to predict future chemical concentrations, helping assess pollution control strategies.
-🔹 Our Streamlit-based dashboard visualizes trends and provides real-time insights for effective enforcement.
+    **Phase 2: AI-ML Implementation (Core Focus)**
+    - We process **historical pollution data** (pH, TDS, effluent volume, etc.) and extract key features.
+    - We train an **LSTM model** to predict **future chemical concentrations**, helping assess pollution control strategies.
+    - Our **Streamlit-based dashboard** visualizes trends and provides real-time insights for effective enforcement.
 
-By leveraging AI, we ensure proactive pollution monitoring and enable data-driven decision-making.
+    By leveraging AI, we ensure **proactive pollution monitoring** and enable **data-driven decision-making**.
 
-📌 A short and crisp presentation explaining our project is attached below. 🚀)
+    📌 **A short and crisp presentation explaining our project is attached below.** 🚀
+    """
+)
 
 #industry = st.text_input("Enter Industry Name")
 # Add dropdown for industry selection
