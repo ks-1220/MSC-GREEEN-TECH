@@ -159,8 +159,8 @@ conductivity = np.random.uniform(800, 2000)  # Simulated value for demonstration
 st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
 
 # Google Drive link to your presentation
-drive_link = "https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing"
+#drive_link = "https://drive.google.com/file/d/1d4SGW7Rd_nmCY6Rs-QkR_O3JA5joWtAM/view?usp=sharing"
 
 # Create a clickable button
-st.markdown(f'<a href="{drive_link}" target="_blank"><button style="background-color:#4CAF50; color:white; padding:10px 15px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">📥 Download Presentation</button></a>', unsafe_allow_html=True)
+#st.markdown(f'<a href="{drive_link}" target="_blank"><button style="background-color:#4CAF50; color:white; padding:10px 15px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">📥 Download Presentation</button></a>', unsafe_allow_html=True)
 
