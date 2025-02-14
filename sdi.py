@@ -161,10 +161,13 @@ regulatory_limit = 100  # Example threshold
 tds = np.random.uniform(500, 2000)  # Simulated value for demonstration
 conductivity = np.random.uniform(800, 2000)  # Simulated value for demonstration
 #st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
-if industry and year and isinstance(predicted_value, (int, float)):
-    st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
-else:
-    st.warning("⚠️ Please select a valid Industry and Year to generate a report.")
+
+if industry and year:
+    if predicted_value is not None and isinstance(predicted_value, (int, float)):
+        st.write(generate_report(industry, year, predicted_value, regulatory_limit, effluent_volume, tds, conductivity))
+    else:
+        st.warning(f"⚠️ No prediction data available for {industry} in {year}. Please select a different year.")
+
 
 
 # Google Drive link to your presentation
