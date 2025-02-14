@@ -144,7 +144,14 @@ st.markdown(
 industry_options = ["Steel Plant D", "Pharmaceutical Plant E", "Paper Mill B", "Textile Factory C", "Chemical Plant A"]
 industry = st.selectbox("Select Industry", industry_options, index=None, placeholder="Select industry from below")
 year = st.selectbox("Select Year", [2025, 2026, 2027, 2028, 2029, 2030], index=None, placeholder="Select year from 2025-2030 from below")
-predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
+
+if year in future_trends['Date'].dt.year.values:
+    predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
+else:
+    predicted_value = "Data not available for selected year"
+
+
+#predicted_value = future_trends[future_trends['Date'].dt.year == year]['Predicted_Concentration'].values[0]
 effluent_volume = np.random.uniform(30000, 60000)  # Simulated value for demonstration
 regulatory_limit = 100  # Example threshold
 tds = np.random.uniform(500, 2000)  # Simulated value for demonstration
