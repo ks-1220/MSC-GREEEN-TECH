@@ -122,7 +122,7 @@ def generate_report(industry, year, concentration, reg_limit, effluent_volume, t
     return "\n".join(output)
 
 st.title("Effluent Prediction Dashboard")
-industry = st.text_input("Enter Industry Name")
+#industry = st.text_input("Enter Industry Name")
 # Add dropdown for industry selection
 industry_options = [
     "Steel Plant D",
